@@ -12,27 +12,31 @@ namespace Vinterprojektet
             Player snakeHead = new Player();
 
 
-            //snakeHead = Raylib.DrawRectangle(10, 10, 10, 10, Color.BEIGE);
 
-            //Raylib.SetTargetFps(60);
-            Raylib.InitWindow(900, 900, "Snake");
+            Raylib.InitWindow(3000, 500, "Snake");
+            Raylib.SetTargetFPS(60);
 
             while (!Raylib.WindowShouldClose())
             {
                 Raylib.BeginDrawing();
                 //Spelets logik
 
-                //snakeHead = Raylib.DrawRectangle(10, 10, 10, 10, Color.BEIGE);
+
+
 
                 Raylib.ClearBackground(Color.BLACK);
-                snakeHead.playerMovement();
                 // Kod för att rita ut saker till fönstret
+
+                snakeHead.playerMovement();
                 Raylib.DrawRectangleRec(snakeHead.playerPosition, Color.BEIGE);
 
 
+                Raylib.CloseWindow();   //Stänger fönstret
 
 
                 Raylib.EndDrawing();
+
+
             }
         }
     }

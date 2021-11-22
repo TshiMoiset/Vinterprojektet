@@ -14,40 +14,46 @@ namespace Vinterprojektet
         {
             while (!Raylib.WindowShouldClose())
             {
-                if (Raylib.IsKeyPressed(KeyboardKey.KEY_RIGHT))
+                update();
+
+                Raylib.BeginDrawing();
+                //Spelets logik
+                if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT))
                 {
                     playerPosition.x += 2.0f;
                 }
 
-                if (Raylib.IsKeyPressed(KeyboardKey.KEY_LEFT))
+                if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT))
                 {
                     playerPosition.x -= 2.0f;
                 }
 
-                if (Raylib.IsKeyPressed(KeyboardKey.KEY_UP))
+                if (Raylib.IsKeyDown(KeyboardKey.KEY_UP))
                 {
                     playerPosition.y -= 2.0f;
                 }
 
-                if (Raylib.IsKeyPressed(KeyboardKey.KEY_DOWN))
+                if (Raylib.IsKeyDown(KeyboardKey.KEY_DOWN))
                 {
                     playerPosition.y += 2.0f;
                 }
 
-                Raylib.BeginDrawing();
-                //Spelets logik
-
-
-
                 Raylib.ClearBackground(Color.BLACK);
-                Raylib.DrawRectangleRec(playerPosition, Color.BLUE);
-
                 // Kod för att rita ut saker till fönstret
+
+                Raylib.DrawRectangleRec(playerPosition, Color.BLUE);
 
 
 
                 Raylib.EndDrawing();
             }
+
+            void update()
+            {
+                int playerSpeed = 7 * 4;
+            }
+
+
 
         }
     }
