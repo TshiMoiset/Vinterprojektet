@@ -1,3 +1,4 @@
+using System.Numerics;
 using System.Security.Cryptography.X509Certificates;
 using System;
 using Raylib_cs;
@@ -6,36 +7,41 @@ namespace Vinterprojektet
 {
     public class Player
     {
-        public Rectangle playerPosition = new Rectangle(40, 40, 40, 40);
+        public Rectangle playerPosition = new Rectangle(480, 280, 40, 40);
 
-        public string[] tail;
+        //public string[] tail;
 
-        public void playerMovement()
+
+
+        int direcionMovemnet = 0;
+        //int movementDirection = 0;
+
+        public void playerMovement()        //Metod för ormens rörelse. 
         {
             while (!Raylib.WindowShouldClose())
             {
-                update();
+                //update();
 
                 Raylib.BeginDrawing();
                 //Spelets logik
-                if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT))
+                if (Raylib.IsKeyPressed(KeyboardKey.KEY_RIGHT))
                 {
-                    playerPosition.x += 2.0f;
+                    playerPosition.x += 25f;
                 }
 
-                if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT))
+                if (Raylib.IsKeyPressed(KeyboardKey.KEY_LEFT))
                 {
-                    playerPosition.x -= 2.0f;
+                    playerPosition.x -= 25f;
                 }
 
-                if (Raylib.IsKeyDown(KeyboardKey.KEY_UP))
+                if (Raylib.IsKeyPressed(KeyboardKey.KEY_UP))
                 {
-                    playerPosition.y -= 2.0f;
+                    playerPosition.y -= 25f;
                 }
 
-                if (Raylib.IsKeyDown(KeyboardKey.KEY_DOWN))
+                if (Raylib.IsKeyPressed(KeyboardKey.KEY_DOWN))
                 {
-                    playerPosition.y += 2.0f;
+                    playerPosition.y += 25f;
                 }
 
                 Raylib.ClearBackground(Color.BLACK);
@@ -48,10 +54,10 @@ namespace Vinterprojektet
                 Raylib.EndDrawing();
             }
 
-            void update()
+            /*void update()
             {
                 int playerSpeed = 7 * 4;
-            }
+            }*/
 
 
 

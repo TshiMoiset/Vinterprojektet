@@ -8,12 +8,10 @@ namespace Vinterprojektet
     {
         static void Main(string[] args)
         {
-
-            Player snakeHead = new Player();
-
+            Player snakeHead = new Player();        //Kallar på klassen player
 
 
-            Raylib.InitWindow(3000, 500, "Snake");
+            Raylib.InitWindow(1000, 600, "Snake Remastered ");
             Raylib.SetTargetFPS(60);
 
             while (!Raylib.WindowShouldClose())
@@ -28,10 +26,10 @@ namespace Vinterprojektet
                 // Kod för att rita ut saker till fönstret
 
                 snakeHead.playerMovement();
-                Raylib.DrawRectangleRec(snakeHead.playerPosition, Color.BEIGE);
+                Raylib.DrawRectangleRec(snakeHead.playerPosition, Color.BLUE);     //Hämntar rektangelns fomr från klassen player
 
 
-                Raylib.CloseWindow();   //Stänger fönstret
+                Raylib.CloseWindow();   //Stänger fönstret om man trycker på ESC knappen
 
 
                 Raylib.EndDrawing();
