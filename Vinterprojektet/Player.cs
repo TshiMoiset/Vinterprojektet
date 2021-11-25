@@ -11,56 +11,42 @@ namespace Vinterprojektet
 
         //public string[] tail;
 
-
-
-        int direcionMovemnet = 0;
-        //int movementDirection = 0;
+        int xMovement = 0;
+        int yMovement = 0;
+        int playerSpeed = 5;
 
         public void playerMovement()        //Metod för ormens rörelse. 
         {
-            while (!Raylib.WindowShouldClose())
+            //Spelets logik
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT))
             {
-                //update();
-
-                Raylib.BeginDrawing();
-                //Spelets logik
-                if (Raylib.IsKeyPressed(KeyboardKey.KEY_RIGHT))
-                {
-                    playerPosition.x += 25f;
-                }
-
-                if (Raylib.IsKeyPressed(KeyboardKey.KEY_LEFT))
-                {
-                    playerPosition.x -= 25f;
-                }
-
-                if (Raylib.IsKeyPressed(KeyboardKey.KEY_UP))
-                {
-                    playerPosition.y -= 25f;
-                }
-
-                if (Raylib.IsKeyPressed(KeyboardKey.KEY_DOWN))
-                {
-                    playerPosition.y += 25f;
-                }
-
-                Raylib.ClearBackground(Color.BLACK);
-                // Kod för att rita ut saker till fönstret
-
-                Raylib.DrawRectangleRec(playerPosition, Color.BLUE);
-
-
-
-                Raylib.EndDrawing();
+                xMovement = playerSpeed;
+                yMovement = 0;
             }
 
-            /*void update()
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT))
             {
-                int playerSpeed = 7 * 4;
-            }*/
+                xMovement = -playerSpeed;
+                yMovement = 0;
+            }
 
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_UP))
+            {
+                yMovement = -playerSpeed;
+                xMovement = 0;
+            }
+
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_DOWN))
+            {
+                yMovement = playerSpeed;
+                xMovement = 0;
+            }
+
+            playerPosition.x += xMovement;
+            playerPosition.y += yMovement;
 
 
         }
     }
 }
+

@@ -29,7 +29,7 @@ namespace Vinterprojektet
                 Raylib.DrawRectangleRec(snakeHead.playerPosition, Color.BLUE);     //Hämntar rektangelns fomr från klassen player
 
 
-                Raylib.CloseWindow();   //Stänger fönstret om man trycker på ESC knappen
+                // Raylib.CloseWindow();   //Stänger fönstret om man trycker på ESC knappen
 
 
                 Raylib.EndDrawing();
