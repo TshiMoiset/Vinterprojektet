@@ -17,14 +17,14 @@ namespace Vinterprojektet
 
             while (!Raylib.WindowShouldClose())
             {
-                bool eating = Raylib.CheckCollisionRecs(snakeHead.playerPosition, snakeFood.foodPosition);
+                bool eating = Raylib.CheckCollisionRecs(snakeHead.playerPosition, snakeFood.foodPosition); //Kontrollerar ifall att maten och spelaren koliderar
 
                 Raylib.BeginDrawing();
                 //Spelets logik
-                if (eating)
+                if (eating)         //Om om eating är true körs koden.
                 {
-                    snakeFood.updateFoodPosition();
-                    snakeFood.score += snakeFood.worth;
+                    snakeFood.updateFoodPosition();    //Metoden anropas för att ge maten och poängen ett nytt värde.
+                    snakeFood.score += snakeFood.worth;     //Eftersom att int score börjar som 0 adderas den med worths random värde efter att ormen har rört maten.
                 }
 
                 Raylib.ClearBackground(Color.BLACK);
