@@ -24,7 +24,7 @@ namespace Vinterprojektet
                 if (eating)
                 {
                     snakeFood.updateFoodPosition();
-                    snakeFood.score++;
+                    snakeFood.score += snakeFood.worth;
                 }
 
                 Raylib.ClearBackground(Color.BLACK);
