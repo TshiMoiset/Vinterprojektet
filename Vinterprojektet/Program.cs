@@ -32,7 +32,7 @@ namespace Vinterprojektet
 
                 snakeHead.playerMovement();
                 Raylib.DrawRectangleRec(snakeHead.playerPosition, Color.BLUE);     //Hämntar rektangelns fomr från klassen player
-                Raylib.DrawRectangle((int)Math.Ceiling(snakeFood.foodPosition.x), (int)Math.Ceiling(snakeFood.foodPosition.y), 40, 40, Color.RED);       //maten
+                Raylib.DrawRectangle((int)Math.Ceiling(snakeFood.foodPosition.x), (int)Math.Ceiling(snakeFood.foodPosition.y), 40, 40, Color.RED);      // Gör en om en float till en int.
 
                 Raylib.DrawText(snakeFood.score.ToString(), 10, 10, 40, Color.WHITE);
 
