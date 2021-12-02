@@ -8,7 +8,7 @@ namespace Vinterprojektet
     {
         static void Main(string[] args)
         {
-            Player snakeHead = new Player();        //Kallar på klassen player
+            Player snakeHead = new Player();        //Kallar på klassen player.
             Food snakeFood = new Food();
             snakeFood.updateFoodPosition();
 
@@ -17,7 +17,7 @@ namespace Vinterprojektet
 
             while (!Raylib.WindowShouldClose())
             {
-                bool eating = Raylib.CheckCollisionRecs(snakeHead.playerPosition, snakeFood.foodPosition); //Kontrollerar ifall att maten och spelaren koliderar
+                bool eating = Raylib.CheckCollisionRecs(snakeHead.playerPosition, snakeFood.foodPosition); //Kontrollerar ifall att maten och spelaren koliderar.
 
                 Raylib.BeginDrawing();
                 //Spelets logik
@@ -28,10 +28,10 @@ namespace Vinterprojektet
                 }
 
                 Raylib.ClearBackground(Color.BLACK);
-                // Kod för att rita ut saker till fönstret
 
-                snakeHead.playerMovement();
-                Raylib.DrawRectangleRec(snakeHead.playerPosition, Color.BLUE);     //Hämntar rektangelns fomr från klassen player
+
+                snakeHead.playerMovement();  //Anropar metod för att kunna förflytta spelaren. 
+                Raylib.DrawRectangleRec(snakeHead.playerPosition, Color.BLUE);     //Hämntar rektangelns form från klassen player. 
                 Raylib.DrawRectangle((int)Math.Ceiling(snakeFood.foodPosition.x), (int)Math.Ceiling(snakeFood.foodPosition.y), 40, 40, Color.RED);      // Gör en om en float till en int.
 
                 Raylib.DrawText(snakeFood.score.ToString(), 10, 10, 40, Color.WHITE);

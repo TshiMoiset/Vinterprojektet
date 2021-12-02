@@ -12,17 +12,17 @@ namespace Vinterprojektet
         public int score = 0;
         public int worth = 0;
 
-        public Rectangle foodPosition = new Rectangle(100, 100, 40, 40); //Matens storlek och postition 
+        public Rectangle foodPosition = new Rectangle(100, 100, 40, 40); //Matens storlek och postition.
 
         Random number = new Random();
 
         public void updateFoodPosition()
         {
-            xFood = number.Next(20, 980);        //Maten får en random x
-            yFood = number.Next(20, 580);        //Maten får en random y
+            xFood = number.Next(20, 980);        //Maten får en random x.
+            yFood = number.Next(20, 580);        //Maten får en random y.
             foodPosition.x = xFood;
             foodPosition.y = yFood;
-            worth = number.Next(20, 900);        // Worth blir random
+            worth = number.Next(20, 90);        // Worth blir random.
         }
     }
 }
