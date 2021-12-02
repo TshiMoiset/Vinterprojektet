@@ -14,6 +14,7 @@ namespace Vinterprojektet
 
             Raylib.InitWindow(1000, 600, "Snake Remastered ");
             Raylib.SetTargetFPS(60);
+            Raylib.DrawGrid(40, 40);
 
             while (!Raylib.WindowShouldClose())
             {
@@ -28,6 +29,7 @@ namespace Vinterprojektet
                 }
 
                 Raylib.ClearBackground(Color.BLACK);
+
 
 
                 snakeHead.playerMovement();  //Anropar metod för att kunna förflytta spelaren. 

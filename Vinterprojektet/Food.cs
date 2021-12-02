@@ -18,11 +18,12 @@ namespace Vinterprojektet
 
         public void updateFoodPosition()
         {
-            xFood = number.Next(20, 980);        //Maten får en random x.
-            yFood = number.Next(20, 580);        //Maten får en random y.
+            worth = number.Next(20, 90);        // Worth blir random.
+
+            xFood = number.Next(20, 969);        //Maten får en random x.
+            yFood = number.Next(20, 569);        //Maten får en random y.
             foodPosition.x = xFood;
             foodPosition.y = yFood;
-            worth = number.Next(20, 90);        // Worth blir random.
         }
     }
 }

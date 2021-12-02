@@ -7,5 +7,6 @@ namespace Vinterprojektet
     public class Tail
     {
 
+
     }
 }
