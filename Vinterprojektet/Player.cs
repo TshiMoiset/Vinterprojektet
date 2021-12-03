@@ -9,7 +9,6 @@ namespace Vinterprojektet
     public class Player
     {
         public Rectangle playerPosition = new Rectangle(480, 280, 40, 40);  // Ormens huvud
-        public Rectangle innerRectangle = new Rectangle(485, 285, 30, 30);
 
         //public string[] tail;
 

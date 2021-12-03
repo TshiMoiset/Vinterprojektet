@@ -17,8 +17,13 @@ namespace Vinterprojektet
             Food snakeFood = new Food();        //Kallar på klassen food.
             snakeFood.updateFoodPosition();
 
+
             Raylib.InitWindow(1000, 600, "Snake Remastered ");
             Raylib.SetTargetFPS(60);
+
+            Image blackImage = Raylib.LoadImage(@"BlackBackground.png");
+            Raylib.ImageResize(ref blackImage, 30, 30);
+            Texture2D blackImageTexture = Raylib.LoadTextureFromImage(blackImage);
 
             while (!Raylib.WindowShouldClose())
             {
@@ -39,13 +44,16 @@ namespace Vinterprojektet
 
                 snakeHead.playerMovement();  //Anropar metod för att kunna förflytta spelaren. 
                 Raylib.DrawRectangleRec(snakeHead.playerPosition, lightGreen);     //Hämntar rektangelns form från klassen player. 
-                Raylib.DrawRectangleRec(snakeHead.innerRectangle, Color.BLACK);
 
 
                 Raylib.DrawRectangle((int)Math.Ceiling(snakeFood.foodPosition.x), (int)Math.Ceiling(snakeFood.foodPosition.y), 40, 40, lightPink);      // Gör en om en float till en int.
 
-
                 Raylib.DrawText(snakeFood.score.ToString(), 10, 10, 40, darkLight);
+
+                //Bilder
+                Raylib.DrawTexture(blackImageTexture, 485, 285, Color.WHITE);
+
+
 
                 Raylib.EndDrawing();
             }
