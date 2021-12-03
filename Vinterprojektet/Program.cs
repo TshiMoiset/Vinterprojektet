@@ -8,13 +8,17 @@ namespace Vinterprojektet
     {
         static void Main(string[] args)
         {
+
+            Color lightPink = new Color(236, 29, 84, 255);
+            Color lightGreen = new Color(15, 209, 163, 255);
+            Color darkLight = new Color(199, 227, 213, 255);
+
             Player snakeHead = new Player();        //Kallar på klassen player.
-            Food snakeFood = new Food();
+            Food snakeFood = new Food();        //Kallar på klassen food.
             snakeFood.updateFoodPosition();
 
             Raylib.InitWindow(1000, 600, "Snake Remastered ");
             Raylib.SetTargetFPS(60);
-            Raylib.DrawGrid(40, 40);
 
             while (!Raylib.WindowShouldClose())
             {
@@ -31,12 +35,17 @@ namespace Vinterprojektet
                 Raylib.ClearBackground(Color.BLACK);
 
 
+                //Raylib.DrawGrid(100, 10000000000);
 
                 snakeHead.playerMovement();  //Anropar metod för att kunna förflytta spelaren. 
-                Raylib.DrawRectangleRec(snakeHead.playerPosition, Color.BLUE);     //Hämntar rektangelns form från klassen player. 
-                Raylib.DrawRectangle((int)Math.Ceiling(snakeFood.foodPosition.x), (int)Math.Ceiling(snakeFood.foodPosition.y), 40, 40, Color.RED);      // Gör en om en float till en int.
+                Raylib.DrawRectangleRec(snakeHead.playerPosition, lightGreen);     //Hämntar rektangelns form från klassen player. 
+                Raylib.DrawRectangleRec(snakeHead.innerRectangle, Color.BLACK);
 
-                Raylib.DrawText(snakeFood.score.ToString(), 10, 10, 40, Color.WHITE);
+
+                Raylib.DrawRectangle((int)Math.Ceiling(snakeFood.foodPosition.x), (int)Math.Ceiling(snakeFood.foodPosition.y), 40, 40, lightPink);      // Gör en om en float till en int.
+
+
+                Raylib.DrawText(snakeFood.score.ToString(), 10, 10, 40, darkLight);
 
                 Raylib.EndDrawing();
             }
