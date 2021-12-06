@@ -6,28 +6,29 @@ namespace Vinterprojektet
 {
     public class Food
     {
-        Player player = new Player();
-
-        Vector2 pos = new Vector2(60, 70);
-
-        int yFood = 0;
         int xFood = 0;
+        int yFood = 0;
         public int score = 0;
         public int worth = 0;
 
-        public Rectangle foodPosition = new Rectangle(100, 100, 40, 40); //Matens storlek och postition.
+        Player player = new Player();
 
+        public Vector2 foodPosition;
+        public Rectangle collisionControl;
 
-        Random number = new Random();
+        Random randomNumber = new Random();
 
         public void updateFoodPosition()
         {
-            worth = number.Next(20, 90);        // Worth blir random.
+            worth = randomNumber.Next(20, 90);        // Worth blir random.
 
-            xFood = number.Next(20, 969);        //Maten får en random x.
-            yFood = number.Next(20, 569);        //Maten får en random y.
-            foodPosition.x = xFood;
-            foodPosition.y = yFood;
+            xFood = randomNumber.Next(20, 969);        //Maten får en random x.
+            yFood = randomNumber.Next(20, 569);        //Maten får en random y.
+
+            foodPosition.X = xFood;
+            foodPosition.Y = yFood;
+
+            collisionControl = new Rectangle(xFood - 20, yFood - 20, 40, 40);
         }
     }
 }

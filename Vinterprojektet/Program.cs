@@ -10,25 +10,21 @@ namespace Vinterprojektet
     {
         static void Main(string[] args)
         {
+            Player snakeHead = new Player();        //Kallar på klassen player.
+            Food snakeFood = new Food();        //Kallar på klassen food.
+            Color lightPink = new Color(244, 71, 134, 255);
 
-            Vector2 pos = new Vector2(60, 70);
-
-            Color lightPink = new Color(236, 29, 84, 255);
             Color lightGreen = new Color(15, 209, 163, 255);
             Color darkLight = new Color(199, 227, 213, 255);
 
-            Player snakeHead = new Player();        //Kallar på klassen player.
-            Food snakeFood = new Food();        //Kallar på klassen food.
-
             snakeFood.updateFoodPosition();
-
 
             Raylib.InitWindow(1000, 600, "Snake Remastered ");
             Raylib.SetTargetFPS(60);
 
             while (!Raylib.WindowShouldClose())
             {
-                bool eating = Raylib.CheckCollisionRecs(snakeHead.playerPosition, snakeFood.foodPosition); //Kontrollerar ifall att maten och spelaren koliderar.
+                bool eating = Raylib.CheckCollisionRecs(snakeHead.playerPosition, snakeFood.collisionControl); //Kontrollerar ifall att maten och spelaren koliderar.
 
                 Raylib.BeginDrawing();
                 //Spelets logik
@@ -40,33 +36,18 @@ namespace Vinterprojektet
 
                 Raylib.ClearBackground(Color.BLACK);
 
+                //Kod för maten.
+                Raylib.DrawRectangleRec(snakeFood.collisionControl, Color.BLACK);
+                Raylib.DrawCircleV(snakeFood.foodPosition, 20, lightPink);
+                Raylib.DrawCircleV(snakeFood.foodPosition, 15, Color.BLACK);
 
-                //Raylib.DrawGrid(100, 10000000000);
-
-
-                Raylib.DrawRectangle((int)Math.Ceiling(snakeFood.foodPosition.x), (int)Math.Ceiling(snakeFood.foodPosition.y), 40, 40, lightPink);      // Gör en om en float till en int.
-
-
-
-
-                // Raylib.DrawEllipse(620, 300, 15, 15, Color.BEIGE);
-                // Raylib.DrawEllipseLines(620, 300, 20, 20, Color.YELLOW);
-
-                Raylib.DrawCircleV(pos, 50, Color.BLUE);
-                Raylib.DrawCircleV(pos, 40, Color.BLACK);
-
-                // Raylib.DrawCircleLines((int)pos.X, (int)pos.Y, 50, Color.GREEN);
-
-
-                // Raylib.DrawCircleLines(620, 200, 20, Color.MAGENTA);
-
+                //Kod för spelaren.
                 snakeHead.playerMovement();  //Anropar metod för att kunna förflytta spelaren. 
                 Raylib.DrawRectangleRec(snakeHead.playerPosition, Color.BLACK);     //Hämntar rektangelns form från klassen player. 
                 Raylib.DrawRectangleLinesEx(snakeHead.playerPosition, 4, lightGreen);
 
-
+                //Kod för poäng.
                 Raylib.DrawText(snakeFood.score.ToString(), 10, 10, 40, darkLight);
-
 
                 Raylib.EndDrawing();
             }
