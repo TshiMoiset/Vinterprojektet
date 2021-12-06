@@ -1,0 +1,11 @@
+           Image blackImage = Raylib.LoadImage(@"BlackBackground.png");
+           Raylib.ImageResize(ref blackImage, 30, 30);
+           Texture2D blackImageTexture = Raylib.LoadTextureFromImage(blackImage);
+ 
+ 
+ 
+ 
+ 
+ //Bilder
+ Raylib.DrawTexture(blackImageTexture, 485, 285, Color.WHITE);
+

@@ -1,5 +1,6 @@
 using System;
 using Raylib_cs;
+using System.Numerics;
 
 namespace Vinterprojektet
 {
@@ -7,12 +8,15 @@ namespace Vinterprojektet
     {
         Player player = new Player();
 
+        Vector2 pos = new Vector2(60, 70);
+
         int yFood = 0;
         int xFood = 0;
         public int score = 0;
         public int worth = 0;
 
         public Rectangle foodPosition = new Rectangle(100, 100, 40, 40); //Matens storlek och postition.
+
 
         Random number = new Random();
 
