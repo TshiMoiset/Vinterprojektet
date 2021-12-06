@@ -19,7 +19,7 @@ namespace Vinterprojektet
 
             snakeFood.updateFoodPosition();
 
-            Raylib.InitWindow(1000, 600, "Snake Remastered ");
+            Raylib.InitWindow(1350, 750, "Snake Remastered ");
             Raylib.SetTargetFPS(60);
 
             while (!Raylib.WindowShouldClose())
@@ -28,7 +28,7 @@ namespace Vinterprojektet
 
                 Raylib.BeginDrawing();
                 //Spelets logik
-                if (eating)         //Om om eating är true körs koden.
+                if (eating)        //Om om eating är true körs koden.
                 {
                     snakeFood.updateFoodPosition();    //Metoden anropas för att ge maten och poängen ett nytt värde.
                     snakeFood.score += snakeFood.worth;     //Eftersom att int score börjar som 0 adderas den med worths random värde efter att ormen har rört maten.
