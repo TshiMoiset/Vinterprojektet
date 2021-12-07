@@ -19,7 +19,7 @@ namespace Vinterprojektet
 
             snakeFood.updateFoodPosition();
 
-            Raylib.InitWindow(1350, 750, "Snake Remastered ");
+            Raylib.InitWindow(1000, 600, "Mamba Games");
             Raylib.SetTargetFPS(60);
 
             while (!Raylib.WindowShouldClose())
