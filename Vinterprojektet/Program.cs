@@ -12,8 +12,10 @@ namespace Vinterprojektet
         {
             Player snakeHead = new Player();        //Kallar på klassen player.
             Food snakeFood = new Food();        //Kallar på klassen food.
-            Color lightPink = new Color(244, 71, 134, 255);
+            Tail snakeTail = new Tail();
 
+
+            Color lightPink = new Color(230, 0, 126, 255);
             Color lightGreen = new Color(15, 209, 163, 255);
             Color darkLight = new Color(199, 227, 213, 255);
 
@@ -45,6 +47,10 @@ namespace Vinterprojektet
                 snakeHead.playerMovement();  //Anropar metod för att kunna förflytta spelaren. 
                 Raylib.DrawRectangleRec(snakeHead.playerPosition, Color.BLACK);     //Hämntar rektangelns form från klassen player. 
                 Raylib.DrawRectangleLinesEx(snakeHead.playerPosition, 4, lightGreen);
+
+                //Kod för svansen.
+                //Raylib.DrawTriangle(snakeTail, 90, 90, Color.GREEN);
+                //Raylib.DrawText(snakeHead.showTail);
 
                 //Kod för poäng.
                 Raylib.DrawText(snakeFood.score.ToString(), 10, 10, 40, darkLight);

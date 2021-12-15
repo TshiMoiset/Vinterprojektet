@@ -10,7 +10,7 @@ namespace Vinterprojektet
     {
         public Rectangle playerPosition = new Rectangle(480, 280, 40, 40);  // Ormens huvud
 
-        //public string[] tail;
+        public int[] tail = new int[100];
 
         int xMovement = 0;          // X-ledens start hastighet
         int yMovement = 0;          // Y-ledens start hastighet
@@ -65,6 +65,21 @@ namespace Vinterprojektet
 
             playerPosition.x += xMovement;      // Gör så att Ormens x ändras hela tiden tills at man har tryckt på en annan knapp.
             playerPosition.y += yMovement;      // Gör så att Ormens y ändras hela tiden tills at man har tryckt på en annan knapp.
+        }
+
+        public void showTail()
+        {
+            for (int i = 0; i < tail.Length; i++)
+            {
+                Console.Write(tail[i]);
+                //tail = tail[i];
+            }
+
+        }
+
+        public void addTail()
+        {
+
         }
     }
 }
