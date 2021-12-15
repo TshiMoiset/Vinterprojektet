@@ -10,12 +10,13 @@ namespace Vinterprojektet
     {
         static void Main(string[] args)
         {
-            Player snakeHead = new Player();        //Kallar på klassen player.
-            Food snakeFood = new Food();        //Kallar på klassen food.
-            Tail snakeTail = new Tail();
+            Player snakeHead = new Player();        //Anropar på klassen player.
+            Food snakeFood = new Food();        //Anropar på klassen food.
+            Tail snakeTail = new Tail();        //Anropar på klassen tail.
+            Menu gameMenu = new Menu();     //Anropar på klassen menu.
 
 
-            Color lightPink = new Color(230, 0, 126, 255);
+            Color lightPink = new Color(230, 0, 126, 255);      //Egen färg
             Color lightGreen = new Color(15, 209, 163, 255);
             Color darkLight = new Color(199, 227, 213, 255);
 
@@ -26,6 +27,13 @@ namespace Vinterprojektet
 
             while (!Raylib.WindowShouldClose())
             {
+
+
+
+
+
+
+
                 bool eating = Raylib.CheckCollisionRecs(snakeHead.playerPosition, snakeFood.collisionControl); //Kontrollerar ifall att maten och spelaren koliderar.
 
                 Raylib.BeginDrawing();
