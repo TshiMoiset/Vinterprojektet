@@ -13,55 +13,79 @@ namespace Vinterprojektet
             Player snakeHead = new Player();        //Anropar på klassen player.
             Food snakeFood = new Food();        //Anropar på klassen food.
             Tail snakeTail = new Tail();        //Anropar på klassen tail.
-            Menu gameMenu = new Menu();     //Anropar på klassen menu.
+            StartGame launchGame = new StartGame();
 
 
             Color lightPink = new Color(230, 0, 126, 255);      //Egen färg
             Color lightGreen = new Color(15, 209, 163, 255);
             Color darkLight = new Color(199, 227, 213, 255);
 
-            snakeFood.updateFoodPosition();
 
-            Raylib.InitWindow(1000, 600, "Mamba Games");
+            int yButtonPosition = 685;
+            int xTextPostition = 685;
+            int textSize = 45;
+
+
+
+            Rectangle startButton = new Rectangle(110, yButtonPosition, 120, 32);
+            Rectangle scoreButton = new Rectangle(380, yButtonPosition, 127, 35);
+            Rectangle endButton = new Rectangle(650, yButtonPosition, 120, 35);
+
+
+            // Raylib.GetMousePosition();
+            bool hoverOnButton;
+
+
+            int screenWidth = 1350;
+            int screenHeight = 750;
+
+
+            Raylib.InitWindow(screenWidth, screenHeight, "Mamba Games");
             Raylib.SetTargetFPS(60);
+
+            Image menuImage = Raylib.LoadImage(@"MambaGames.png");
+            Raylib.ImageResize(ref menuImage, 1350, 750);
+            Texture2D menuImgTexture = Raylib.LoadTextureFromImage(menuImage);
+
+            string scene = "menu";
+
 
             while (!Raylib.WindowShouldClose())
             {
 
-
-
-
-
-
-
-                bool eating = Raylib.CheckCollisionRecs(snakeHead.playerPosition, snakeFood.collisionControl); //Kontrollerar ifall att maten och spelaren koliderar.
-
                 Raylib.BeginDrawing();
-                //Spelets logik
-                if (eating)        //Om om eating är true körs koden.
+
+                if (scene == "menu")
                 {
-                    snakeFood.updateFoodPosition();    //Metoden anropas för att ge maten och poängen ett nytt värde.
-                    snakeFood.score += snakeFood.worth;     //Eftersom att int score börjar som 0 adderas den med worths random värde efter att ormen har rört maten.
+                    Raylib.DrawTexture(menuImgTexture, 0, 0, Color.WHITE);
+                    // Raylib.GetScreenWidth();
+                    // Raylib.GetScreenHeight();
+                    //bool hoverOnButton = Raylib.CheckCollisionRecs(, startButton);
+
+                    if (Raylib.IsMouseButtonPressed(MouseButton.MOUSE_LEFT_BUTTON))
+                    {
+                        scene = "game";
+                        Raylib.SetWindowSize(1000, 600);
+                    }
+
+
+                    Raylib.DrawRectangleRec(startButton, Color.BLACK);
+                    Raylib.DrawText("Begin", 115, xTextPostition, textSize, Color.WHITE);
+
+
+                    Raylib.DrawRectangleRec(scoreButton, Color.BLACK);
+                    Raylib.DrawText("Score", 383, xTextPostition, textSize, Color.WHITE);
+
+
+                    Raylib.DrawRectangleRec(endButton, Color.BLACK);
+                    Raylib.DrawText("End", 675, xTextPostition, textSize, Color.WHITE);
+
                 }
 
-                Raylib.ClearBackground(Color.BLACK);
-
-                //Kod för maten.
-                Raylib.DrawRectangleRec(snakeFood.collisionControl, Color.BLACK);
-                Raylib.DrawCircleV(snakeFood.foodPosition, 20, lightPink);
-                Raylib.DrawCircleV(snakeFood.foodPosition, 15, Color.BLACK);
-
-                //Kod för spelaren.
-                snakeHead.playerMovement();  //Anropar metod för att kunna förflytta spelaren. 
-                Raylib.DrawRectangleRec(snakeHead.playerPosition, Color.BLACK);     //Hämntar rektangelns form från klassen player. 
-                Raylib.DrawRectangleLinesEx(snakeHead.playerPosition, 4, lightGreen);
-
-                //Kod för svansen.
-                //Raylib.DrawTriangle(snakeTail, 90, 90, Color.GREEN);
-                //Raylib.DrawText(snakeHead.showTail);
-
-                //Kod för poäng.
-                Raylib.DrawText(snakeFood.score.ToString(), 10, 10, 40, darkLight);
+                else if (scene == "game")
+                {
+                    launchGame.RunGame();
+                }
 
                 Raylib.EndDrawing();
             }
