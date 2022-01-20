@@ -35,12 +35,7 @@ namespace Vinterprojektet
             // Raylib.GetMousePosition();
             bool hoverOnButton;
 
-
-            int screenWidth = 1350;
-            int screenHeight = 750;
-
-
-            Raylib.InitWindow(screenWidth, screenHeight, "Mamba Games");
+            Raylib.InitWindow(1350, 750, "Mamba Games");
             Raylib.SetTargetFPS(60);
 
             Image menuImage = Raylib.LoadImage(@"MambaGames.png");
@@ -66,6 +61,7 @@ namespace Vinterprojektet
                     {
                         scene = "game";
                         Raylib.SetWindowSize(1000, 600);
+                        //sRaylib.SetWindowPosition(100, 150);
                     }
 
 
@@ -85,9 +81,16 @@ namespace Vinterprojektet
                 else if (scene == "game")
                 {
                     launchGame.RunGame();
+
+                    if (Raylib.IsKeyDown(KeyboardKey.KEY_BACKSPACE))
+                    {
+                        scene = "menu";
+                        Raylib.SetWindowSize(1350, 750);
+                    }
                 }
 
                 Raylib.EndDrawing();
+
             }
         }
     }
