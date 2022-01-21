@@ -53,14 +53,6 @@ namespace Vinterprojektet
 
             }
 
-            if (snakeFood.score >= 100)
-            {
-                Raylib.DrawRectangleRec(snakeEnemy.enemyCollisionControl, Color.BLACK);
-                Raylib.DrawPoly(snakeEnemy.enemyPosition, 1, 28, 180, gold);
-                Raylib.DrawPoly(snakeEnemy.enemyPosition, 1, 20, 180, Color.BLACK);
-                Raylib.DrawText("The V.I.P's has arrived", 570, 10, 35, gold);
-            }
-
             Raylib.ClearBackground(Color.BLACK);
 
             //Kod för maten.
@@ -73,7 +65,13 @@ namespace Vinterprojektet
             Raylib.DrawRectangleRec(snakeHead.playerPosition, Color.BLACK);     //Hämntar rektangelns form från klassen player. 
             Raylib.DrawRectangleLinesEx(snakeHead.playerPosition, 4, lightGreen);
 
-
+            if (snakeFood.score >= 100)
+            {
+                Raylib.DrawText("The V.I.P's has arrived", 570, 10, 35, gold);
+                Raylib.DrawRectangleRec(snakeEnemy.enemyCollisionControl, Color.BLACK);
+                Raylib.DrawPoly(snakeEnemy.enemyPosition, 1, 28, 180, gold);
+                Raylib.DrawPoly(snakeEnemy.enemyPosition, 1, 20, 180, Color.BLACK);
+            }
 
 
             //Kod för svansen.

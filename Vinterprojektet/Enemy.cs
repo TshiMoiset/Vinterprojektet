@@ -23,8 +23,8 @@ namespace Vinterprojektet
 
             pointLose = randomNumber.Next(10, 25);
 
-            enemyPosition.X = xEnemy;
-            enemyPosition.Y = yEnemy;
+            enemyPosition.X = 570;
+            enemyPosition.Y = 10;
 
             enemyCollisionControl = new Rectangle(xEnemy - 20, yEnemy - 25, 40, 40);
         }
