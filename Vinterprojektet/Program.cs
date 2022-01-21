@@ -54,7 +54,7 @@ namespace Vinterprojektet
                     if (Raylib.IsMouseButtonPressed(MouseButton.MOUSE_LEFT_BUTTON))
                     {
                         scene = "game";
-                        Raylib.SetWindowSize(1000, 600);
+                        Raylib.SetWindowSize(1100, 700);
                     }
 
                     Raylib.DrawRectangleRec(startButton, Color.BLACK);

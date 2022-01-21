@@ -22,8 +22,8 @@ namespace Vinterprojektet
         {
             worth = randomNumber.Next(1, 25);        // Matens värde som blir poäng blir random.
 
-            xFood = randomNumber.Next(20, 969);        //Maten får en random x.
-            yFood = randomNumber.Next(20, 569);        //Maten får en random y.
+            xFood = randomNumber.Next(0, 1060);        //Maten får en random x.
+            yFood = randomNumber.Next(55, 660);        //Maten får en random y.
 
             foodPosition.X = xFood;
             foodPosition.Y = yFood;

@@ -43,28 +43,28 @@ namespace Vinterprojektet
                 xMovement = 0;
             }
 
-            if (playerPosition.x == -40)        // Om man befinner sig på position -40 på x kommer spelarens påsition ändras till 1040.
+            if (playerPosition.x == -100)        // Om man befinner sig på position -40 på x kommer spelarens påsition ändras till 1040.
             {
-                playerPosition.x = 1040;
+                playerPosition.x = 1090;
             }
 
-            else if (playerPosition.x == 1040)
+            else if (playerPosition.x == 1090)
             {
-                playerPosition.x = -40;
+                playerPosition.x = -100;
             }
 
             else if (playerPosition.y == -40)        // Om man befinner sig på position -40 på y kommer spelarens påsition ändras till 640.
             {
-                playerPosition.y = 640;
+                playerPosition.y = 700;
             }
 
-            else if (playerPosition.y == 640)
+            else if (playerPosition.y == 700)
             {
                 playerPosition.y = -40;
             }
 
-            playerPosition.x += xMovement;      // Gör så att Ormens x ändras hela tiden tills at man har tryckt på en annan knapp.
-            playerPosition.y += yMovement;      // Gör så att Ormens y ändras hela tiden tills at man har tryckt på en annan knapp.
+            playerPosition.x += xMovement;      // Gör så att Ormens x ändras hela tiden tills att man har tryckt på en annan knapp.
+            playerPosition.y += yMovement;      // Gör så att Ormens y ändras hela tiden tills att man har tryckt på en annan knapp.
         }
 
         public void showTail()
