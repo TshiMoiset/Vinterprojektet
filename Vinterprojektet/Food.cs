@@ -20,7 +20,7 @@ namespace Vinterprojektet
 
         public void updateFoodPosition()
         {
-            worth = randomNumber.Next(20, 50);        // Matens värde som blir poäng blir random.
+            worth = randomNumber.Next(1, 25);        // Matens värde som blir poäng blir random.
 
             xFood = randomNumber.Next(20, 969);        //Maten får en random x.
             yFood = randomNumber.Next(20, 569);        //Maten får en random y.

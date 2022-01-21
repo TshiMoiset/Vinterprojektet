@@ -25,12 +25,9 @@ namespace Vinterprojektet
             int xTextPostition = 685;
             int textSize = 45;
 
-
-
             Rectangle startButton = new Rectangle(110, yButtonPosition, 120, 32);
             Rectangle scoreButton = new Rectangle(380, yButtonPosition, 127, 35);
             Rectangle endButton = new Rectangle(650, yButtonPosition, 120, 35);
-
 
             // Raylib.GetMousePosition();
             bool hoverOnButton;
@@ -44,7 +41,6 @@ namespace Vinterprojektet
 
             string scene = "menu";
 
-
             while (!Raylib.WindowShouldClose())
             {
 
@@ -53,17 +49,13 @@ namespace Vinterprojektet
                 if (scene == "menu")
                 {
                     Raylib.DrawTexture(menuImgTexture, 0, 0, Color.WHITE);
-                    // Raylib.GetScreenWidth();
-                    // Raylib.GetScreenHeight();
                     //bool hoverOnButton = Raylib.CheckCollisionRecs(, startButton);
 
                     if (Raylib.IsMouseButtonPressed(MouseButton.MOUSE_LEFT_BUTTON))
                     {
                         scene = "game";
                         Raylib.SetWindowSize(1000, 600);
-                        //sRaylib.SetWindowPosition(100, 150);
                     }
-
 
                     Raylib.DrawRectangleRec(startButton, Color.BLACK);
                     Raylib.DrawText("Begin", 115, xTextPostition, textSize, Color.WHITE);
