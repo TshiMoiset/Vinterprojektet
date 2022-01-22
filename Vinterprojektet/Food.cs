@@ -6,8 +6,8 @@ namespace Vinterprojektet
 {
     public class Food
     {
-        int xFood = 0;
-        int yFood = 0;
+        public int xFood = 0;
+        public int yFood = 0;
         public int score = 0;
         public int worth = 0;
 
@@ -22,8 +22,8 @@ namespace Vinterprojektet
         {
             worth = randomNumber.Next(1, 25);        // Matens värde som blir poäng blir random.
 
-            xFood = randomNumber.Next(0, 1060);        //Maten får en random x.
-            yFood = randomNumber.Next(55, 660);        //Maten får en random y.
+            xFood = randomNumber.Next(30, 1060);        //Maten får en random x.
+            yFood = randomNumber.Next(70, 660);        //Maten får en random y.
 
             foodPosition.X = xFood;
             foodPosition.Y = yFood;

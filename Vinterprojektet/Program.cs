@@ -20,7 +20,6 @@ namespace Vinterprojektet
             Color lightGreen = new Color(15, 209, 163, 255);
             Color darkLight = new Color(199, 227, 213, 255);
 
-
             int yButtonPosition = 685;
             int xTextPostition = 685;
             int textSize = 45;
