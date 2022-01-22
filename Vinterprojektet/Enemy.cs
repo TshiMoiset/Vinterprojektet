@@ -7,16 +7,9 @@ namespace Vinterprojektet
 {
     public class Enemy
     {
+        Food snakeFood = new Food();
 
-        int xEnemy = 0;
-        int yEnemy = 0;
-
-        int xTriangle = 0;
-        int yTriangle = 0;
-
-
-
-        /*int xEnemy1 = 0;
+        int xEnemy1 = 0;
         int yEnemy1 = 0;
 
         int xEnemy2 = 0;
@@ -25,63 +18,33 @@ namespace Vinterprojektet
         int xEnemy3 = 0;
         int yEnemy3 = 0;
 
-        int xEnemy4 = 0;
-        int yEnemy4 = 0;
-
-        int xEnemy5 = 0;
-        int yEnemy5 = 0;
-
-        int xEnemy6 = 0;
-        int yEnemy6 = 0;*/
-
-        public int losePoints = 0;
-        //string[] enemies = { "enemy1", "enemy2", "enemy3", "enemy4", "enemy5", "enemy6" };
 
         public Vector2 enemy1;
         public Vector2 enemy2;
         public Vector2 enemy3;
-        public Vector2 enemy4;
-        public Vector2 enemy5;
-        public Vector2 enemy6;
 
-        public Vector2 enemyPosition;
-
-        public Vector2 triangle1;
-        public Vector2 triangle2;
-        public Vector2 triangle3;
-
-        public Rectangle enemyCollisionControl;
+        public Rectangle enemy1Collision;
+        public Rectangle enemy2Collision;
+        public Rectangle enemy3Collision;
 
         Random randomNumber = new Random();
+
+        public int losePoints = 0;
 
         public void updateEnemyPosition()
         {
             losePoints = randomNumber.Next(10, 25);
-            xEnemy = randomNumber.Next(0, 1055);        //Fienden får en random x.
-            yEnemy = randomNumber.Next(60, 660);        //Fienden får en random y.
 
-            /*xEnemy1 = randomNumber.Next(20, 969);        //Fienden får en random x.
-            yEnemy1 = randomNumber.Next(20, 569);        //Fienden får en random y.
+            xEnemy1 = randomNumber.Next(30, 1055);        //Fienden får en random x.
+            yEnemy1 = randomNumber.Next(70, 660);        //Fienden får en random y.
 
-            xEnemy2 = randomNumber.Next(20, 969);        //Fienden får en random x.
-            yEnemy2 = randomNumber.Next(20, 569);        //Fienden får en random y.
+            xEnemy2 = randomNumber.Next(30, 1055);        //Fienden får en random x.
+            yEnemy2 = randomNumber.Next(70, 660);        //Fienden får en random y.
 
-            xEnemy3 = randomNumber.Next(20, 969);        //Fienden får en random x.
-            yEnemy3 = randomNumber.Next(20, 569);        //Fienden får en random y.
+            xEnemy3 = randomNumber.Next(30, 1055);        //Fienden får en random x.
+            yEnemy3 = randomNumber.Next(70, 660);        //Fienden får en random y.
 
-            xEnemy4 = randomNumber.Next(20, 969);        //Fienden får en random x.
-            yEnemy4 = randomNumber.Next(20, 569);        //Fienden får en random y.
-
-            xEnemy5 = randomNumber.Next(20, 969);        //Fienden får en random x.
-            yEnemy5 = randomNumber.Next(20, 569);        //Fienden får en random y.
-
-            xEnemy6 = randomNumber.Next(20, 969);        //Fienden får en random x.
-            yEnemy6 = randomNumber.Next(20, 569);        Fienden får en random y.*/
-
-            enemyPosition.X = xEnemy;
-            enemyPosition.Y = yEnemy;
-
-            /*enemy1.X = xEnemy1;
+            enemy1.X = xEnemy1;
             enemy1.Y = yEnemy1;
 
             enemy2.X = xEnemy2;
@@ -90,16 +53,58 @@ namespace Vinterprojektet
             enemy3.X = xEnemy3;
             enemy3.Y = yEnemy3;
 
-            enemy4.X = xEnemy4;
-            enemy4.Y = xEnemy4;
+            enemy1Collision = new Rectangle(xEnemy1 - 20, yEnemy1 - 25, 40, 40);
+            enemy2Collision = new Rectangle(xEnemy2 - 20, yEnemy2 - 25, 40, 40);
+            enemy3Collision = new Rectangle(xEnemy3 - 20, yEnemy3 - 25, 40, 40);
 
-            enemy5.X = xEnemy5;
-            enemy5.Y = xEnemy5;
+            /* if (xEnemy1 == xEnemy2 && xEnemy1 == xEnemy3 && xEnemy2 == xEnemy3)
+             {
+                 xEnemy1 = randomNumber.Next(30, 1055);        //Fienden får en random x.
+                 yEnemy1 = randomNumber.Next(70, 660);        //Fienden får en random y.
 
-            enemy6.X = xEnemy6;
-            enemy6.Y = xEnemy6; */
+                 xEnemy2 = randomNumber.Next(30, 1055);        //Fienden får en random x.
+                 yEnemy2 = randomNumber.Next(70, 660);        //Fienden får en random y.
 
-            enemyCollisionControl = new Rectangle(xEnemy - 20, yEnemy - 25, 40, 40);
+                 xEnemy3 = randomNumber.Next(30, 1055);        //Fienden får en random x.
+                 yEnemy3 = randomNumber.Next(70, 660);        //Fienden får en random y.
+             }
+
+             if (yEnemy1 == yEnemy2 && yEnemy1 == xEnemy3 && xEnemy2 == xEnemy3)
+             {
+                 xEnemy1 = randomNumber.Next(30, 1055);        //Fienden får en random x.
+                 yEnemy1 = randomNumber.Next(70, 660);        //Fienden får en random y.
+
+                 xEnemy2 = randomNumber.Next(30, 1055);        //Fienden får en random x.
+                 yEnemy2 = randomNumber.Next(70, 660);        //Fienden får en random y.
+
+                 xEnemy3 = randomNumber.Next(30, 1055);        //Fienden får en random x.
+                 yEnemy3 = randomNumber.Next(70, 660);        //Fienden får en random y.
+             }
+
+             if (snakeFood.xFood == xEnemy1 && snakeFood.xFood == xEnemy2 && snakeFood.xFood == xEnemy3)
+             {
+                 xEnemy1 = randomNumber.Next(30, 1055);        //Fienden får en random x.
+                 yEnemy1 = randomNumber.Next(70, 660);        //Fienden får en random y.
+
+                 xEnemy2 = randomNumber.Next(30, 1055);        //Fienden får en random x.
+                 yEnemy2 = randomNumber.Next(70, 660);        //Fienden får en random y.
+
+                 xEnemy3 = randomNumber.Next(30, 1055);        //Fienden får en random x.
+                 yEnemy3 = randomNumber.Next(70, 660);        //Fienden får en random y.
+             }
+
+             if (snakeFood.yFood == yEnemy1 && snakeFood.yFood == yEnemy2 && snakeFood.yFood == yEnemy3)
+             {
+                 xEnemy1 = randomNumber.Next(30, 1055);        //Fienden får en random x.
+                 yEnemy1 = randomNumber.Next(70, 660);        //Fienden får en random y.
+
+                 xEnemy2 = randomNumber.Next(30, 1055);        //Fienden får en random x.
+                 yEnemy2 = randomNumber.Next(70, 660);        //Fienden får en random y.
+
+                 xEnemy3 = randomNumber.Next(30, 1055);        //Fienden får en random x.
+                 yEnemy3 = randomNumber.Next(70, 660);        //Fienden får en random y.
+             }*/
+
         }
     }
 }
