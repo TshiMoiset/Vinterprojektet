@@ -8,10 +8,9 @@ namespace Vinterprojektet
     {
         public int xFood = 0;
         public int yFood = 0;
+
         public int score = 0;
         public int worth = 0;
-
-        Player player = new Player();
 
         public Vector2 foodPosition;
         public Rectangle collisionControl;
@@ -22,13 +21,13 @@ namespace Vinterprojektet
         {
             worth = randomNumber.Next(1, 25);        // Matens värde som blir poäng blir random.
 
-            xFood = randomNumber.Next(30, 1060);        //Maten får en random x.
-            yFood = randomNumber.Next(70, 660);        //Maten får en random y.
+            xFood = randomNumber.Next(30, 1070);        //Maten får en random x.
+            yFood = randomNumber.Next(85, 670);        //Maten får en random y.
 
-            foodPosition.X = xFood;
-            foodPosition.Y = yFood;
+            foodPosition.X = xFood;     //Vector2 alltså maten får en random positionen xFood har fått.
+            foodPosition.Y = yFood;     //Vector2 alltså maten får en random positionen yFood har fått.
 
-            collisionControl = new Rectangle(xFood - 20, yFood - 20, 40, 40);
+            collisionControl = new Rectangle(xFood - 20, yFood - 20, 40, 40);       //Ritar ut en rektangel som kommer ha värdet av xFood & yFood -20 så att den hamnar exakt bakom cirkeln.
         }
     }
 }
