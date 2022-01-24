@@ -15,7 +15,6 @@ namespace Vinterprojektet
             Tail snakeTail = new Tail();        //Anropar på klassen tail.
             StartGame launchGame = new StartGame();
 
-
             Color lightPink = new Color(230, 0, 126, 255);      //Egen färg
             Color lightGreen = new Color(15, 209, 163, 255);
             Color darkLight = new Color(199, 227, 213, 255);
@@ -24,9 +23,9 @@ namespace Vinterprojektet
             int xTextPostition = 685;
             int textSize = 45;
 
-            Rectangle startButton = new Rectangle(110, yButtonPosition, 120, 32);
-            Rectangle scoreButton = new Rectangle(380, yButtonPosition, 127, 35);
-            Rectangle endButton = new Rectangle(650, yButtonPosition, 120, 35);
+            /*Rectangle startButton = new Rectangle(160, yButtonPosition, 120, 32);
+            Rectangle scoreButton = new Rectangle(428, yButtonPosition, 127, 35);
+            Rectangle endButton = new Rectangle(720, yButtonPosition, 120, 35);*/
 
             // Raylib.GetMousePosition();
             bool hoverOnButton;
@@ -56,16 +55,16 @@ namespace Vinterprojektet
                         Raylib.SetWindowSize(1100, 700);
                     }
 
-                    Raylib.DrawRectangleRec(startButton, Color.BLACK);
-                    Raylib.DrawText("Begin", 115, xTextPostition, textSize, Color.WHITE);
+                    // Raylib.DrawRectangleRec(startButton, Color.GREEN);
+                    Raylib.DrawText("Begin", 160, xTextPostition, textSize, Color.WHITE);
 
 
-                    Raylib.DrawRectangleRec(scoreButton, Color.BLACK);
-                    Raylib.DrawText("Score", 383, xTextPostition, textSize, Color.WHITE);
+                    // Raylib.DrawRectangleRec(scoreButton, Color.GREEN);
+                    Raylib.DrawText("Score", 428, xTextPostition, textSize, Color.WHITE);
 
 
-                    Raylib.DrawRectangleRec(endButton, Color.BLACK);
-                    Raylib.DrawText("End", 675, xTextPostition, textSize, Color.WHITE);
+                    // Raylib.DrawRectangleRec(endButton, Color.GREEN);
+                    Raylib.DrawText("End", 720, xTextPostition, textSize, Color.WHITE);
 
                 }
 

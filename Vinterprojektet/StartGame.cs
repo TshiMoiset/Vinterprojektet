@@ -19,7 +19,6 @@ namespace Vinterprojektet
         Color darkGray = new Color(15, 14, 11, 255);         //Egen färg
         Color gold = new Color(197, 173, 58, 255);         //Egen färg
 
-
         public void RunGame()
         {
 
