@@ -7,8 +7,6 @@ namespace Vinterprojektet
 {
     public class Enemy
     {
-        Food snakeFood = new Food();
-
         int xEnemy1 = 0;
         int yEnemy1 = 0;
 

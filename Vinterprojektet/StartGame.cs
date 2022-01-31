@@ -2,6 +2,7 @@ using System.Reflection.Metadata;
 using System.Numerics;
 using System;
 using Raylib_cs;
+using System.Globalization;
 
 namespace Vinterprojektet
 {
@@ -76,7 +77,7 @@ namespace Vinterprojektet
 
             Raylib.DrawRectangle(0, 0, 1100, 55, darkGray);     //Backgrund för den övre delen av skärmen.
 
-            if (snakeFood.score >= 1)
+            if (snakeFood.score >= 50)
             {
                 Raylib.DrawText("The V.I.P's has arrived", 680, 10, 35, gold);
                 Raylib.DrawRectangleRec(snakeEnemy.enemy1Collision, Color.BLACK);
@@ -92,7 +93,8 @@ namespace Vinterprojektet
                 Raylib.DrawPoly(snakeEnemy.enemy3, 1, 20, 180, Color.BLACK);
             }
 
-            Raylib.DrawText(snakeFood.score.ToString(), 10, 10, 40, darkLight);     //Kod för att visa poäng. 
+            Raylib.DrawText(snakeFood.score.ToString(), 40, 10, 40, darkLight);     //Kod för att visa poäng. 
+            Raylib.DrawText("$", 10, 10, 40, darkLight);
 
             //Kod för svansen.
             //Raylib.DrawTriangle(snakeTail, 90, 90, Color.GREEN);
