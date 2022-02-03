@@ -30,10 +30,10 @@ namespace Vinterprojektet
             int enemyAmount;
             enemyAmount = randomNumber.Next(1, 6);
 
-            if (snakeEnemy.enemy.X == 0)
+            /*if (snakeEnemy.enemy.X == 0)
             {
                 snakeEnemy.updateEnemyPosition();
-            }
+            }*/
 
             if (snakeFood.foodPosition.X == 0)
             {
@@ -77,15 +77,17 @@ namespace Vinterprojektet
 
             Raylib.DrawRectangle(0, 0, 1100, 55, darkGray);     //Backgrund för den övre delen av skärmen.
 
-            if (snakeFood.score >= 0)
+            if (snakeFood.score >= 1)
             {
-
-
-
                 Raylib.DrawText("The V.I.P's has arrived", 680, 10, 35, gold);
                 Raylib.DrawRectangleRec(snakeEnemy.enemyCollision, Color.BLACK);
                 Raylib.DrawPoly(snakeEnemy.enemy, 1, 28, 180, gold);
                 Raylib.DrawPoly(snakeEnemy.enemy, 1, 20, 180, Color.BLACK);
+
+                if ()
+                {
+                    snakeEnemy.updateEnemyPosition();
+                }
 
             }
 
