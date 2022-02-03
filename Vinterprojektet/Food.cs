@@ -1,16 +1,17 @@
 using System;
 using Raylib_cs;
 using System.Numerics;
+using System.Collections.Generic;
 
 namespace Vinterprojektet
 {
     public class Food
     {
-        public int xFood = 0;
-        public int yFood = 0;
+        public int xFood;
+        public int yFood;
 
-        public int score = 0;
-        public int worth = 0;
+        public int score;
+        public int worth;
 
         public Vector2 foodPosition;
         public Rectangle collisionControl;
