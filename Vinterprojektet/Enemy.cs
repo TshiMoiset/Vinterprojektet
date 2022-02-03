@@ -7,10 +7,13 @@ namespace Vinterprojektet
 {
     public class Enemy
     {
-        int yEnemy;
         int xEnemy;
+        int yEnemy;
         public int losePoints;
+        //public Vector2 enemy;
+
         public Vector2 enemy;
+
 
         //List<string> listNamn = new List<string>();
         List<Vector2> enemyList = new List<Vector2>();
@@ -23,18 +26,20 @@ namespace Vinterprojektet
 
         public void updateEnemyPosition()
         {
-            xEnemy = randomNumber.Next(35, 1065);        //Fienden får en random x.
-            yEnemy = randomNumber.Next(90, 675);        //Fienden får en random y.
+            /*enemy.X = xEnemy;
+            enemy.Y = yEnemy;*/
 
-            enemy.X = xEnemy;
-            enemy.Y = yEnemy;
-
-            enemyAmount = randomNumber.Next(1, 6);
+            enemyAmount = randomNumber.Next(1, 7);
 
             for (var i = 0; i < enemyAmount; i++)
             {
+                enemy = new Vector2();
                 enemyList.Add(enemy);
-                Console.WriteLine(enemyList);
+                xEnemy = randomNumber.Next(35, 1065);        //Fienden får en random x.
+                yEnemy = randomNumber.Next(90, 675);
+
+                enemy.X = xEnemy;
+                enemy.Y = yEnemy;
             }
 
             enemyCollision = new Rectangle(xEnemy - 20, yEnemy - 25, 40, 40);        //Ritar ut en rektangel som kommer ha värdet av xEnemy1 -20 & yEnemy1 -25 så att den hamnar exakt bakom triangeln.
