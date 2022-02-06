@@ -18,17 +18,6 @@ namespace Vinterprojektet
             Color lightGreen = new Color(15, 209, 163, 255);
             Color darkLight = new Color(199, 227, 213, 255);
 
-            int yButtonPosition = 685;
-            int xTextPostition = 685;
-            int textSize = 45;
-
-            /*Rectangle startButton = new Rectangle(160, yButtonPosition, 120, 32);
-            Rectangle scoreButton = new Rectangle(428, yButtonPosition, 127, 35);
-            Rectangle endButton = new Rectangle(720, yButtonPosition, 120, 35);*/
-
-            // Raylib.GetMousePosition();
-            bool hoverOnButton;
-
             Raylib.InitWindow(1350, 750, "Mamba Games");
             Raylib.SetTargetFPS(60);
 
@@ -46,7 +35,6 @@ namespace Vinterprojektet
                 if (scene == "menu")
                 {
                     Raylib.DrawTexture(menuImgTexture, 0, 0, Color.WHITE);
-                    //bool hoverOnButton = Raylib.CheckCollisionRecs(, startButton);
 
                     if (Raylib.IsMouseButtonPressed(MouseButton.MOUSE_LEFT_BUTTON))
                     {
@@ -54,17 +42,7 @@ namespace Vinterprojektet
                         Raylib.SetWindowSize(1100, 700);
                     }
 
-                    // Raylib.DrawRectangleRec(startButton, Color.GREEN);
-                    Raylib.DrawText("Begin", 160, xTextPostition, textSize, Color.WHITE);
-
-
-                    // Raylib.DrawRectangleRec(scoreButton, Color.GREEN);
-                    Raylib.DrawText("Score", 428, xTextPostition, textSize, Color.WHITE);
-
-
-                    // Raylib.DrawRectangleRec(endButton, Color.GREEN);
-                    Raylib.DrawText("End", 720, xTextPostition, textSize, Color.WHITE);
-
+                    Raylib.DrawText("Press left mouse to start", 160, 685, 45, Color.WHITE);
                 }
 
                 else if (scene == "game")

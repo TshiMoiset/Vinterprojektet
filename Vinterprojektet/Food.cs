@@ -7,20 +7,20 @@ namespace Vinterprojektet
 {
     public class Food
     {
-        public int xFood;
-        public int yFood;
+        public int xFood;       //Matens x position.
+        public int yFood;       //Matens y position.
 
-        public int score;
-        public int worth;
+        public int score;       //Spelarens score.
+        public int worth;       //Hur mycket poäng som ska läggas till spelaren. 
 
-        public Vector2 foodPosition;
-        public Rectangle collisionControl;
+        public Vector2 foodPosition;        //Maten form. 
+        public Rectangle foodCollision;     //Rektangel som ska kolla ifall att maten koliderar med andra objekt. 
 
-        Random randomNumber = new Random();
+        Random randomNumber = new Random();     //Random generator
 
-        public void updateFoodPosition()
+        public void updateFoodPosition()        //Metoden ska köras varje gång spelaren kolliderar med spelaren så att den får en ny position.
         {
-            worth = randomNumber.Next(1, 25);        // Matens värde som blir poäng blir random.
+            worth = randomNumber.Next(1, 25);        // Matens värde som blir poäng som sedan adderas till score.
 
             xFood = randomNumber.Next(30, 1070);        //Maten får en random x.
             yFood = randomNumber.Next(85, 670);        //Maten får en random y.
@@ -28,7 +28,7 @@ namespace Vinterprojektet
             foodPosition.X = xFood;     //Vector2 alltså maten får en random positionen xFood har fått.
             foodPosition.Y = yFood;     //Vector2 alltså maten får en random positionen yFood har fått.
 
-            collisionControl = new Rectangle(xFood - 20, yFood - 20, 40, 40);       //Ritar ut en rektangel som kommer ha värdet av xFood & yFood -20 så att den hamnar exakt bakom cirkeln.
+            foodCollision = new Rectangle(xFood - 20, yFood - 20, 40, 40);      //Ritar ut en rektangel som kommer ha värdet av xFood & yFood -20 så att den hamnar exakt bakom cirkeln.
         }
     }
 }
