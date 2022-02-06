@@ -42,7 +42,7 @@ namespace Vinterprojektet
                         Raylib.SetWindowSize(1100, 700);
                     }
 
-                    Raylib.DrawText("Press left mouse to start", 160, 685, 45, Color.WHITE);
+                    Raylib.DrawText("Press left mouse key to start", 160, 685, 45, Color.WHITE);
                 }
 
                 else if (scene == "game")
