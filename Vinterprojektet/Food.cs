@@ -25,8 +25,6 @@ namespace Vinterprojektet
 
             foodPosition.X = xFood;     //Vector2 alltså maten får en random positionen xFood har fått.
             foodPosition.Y = yFood;     //Vector2 alltså maten får en random positionen yFood har fått.
-
-            foodCollision = new Rectangle(xFood - 20, yFood - 20, 40, 40);      //Ritar ut en rektangel som kommer ha värdet av xFood & yFood -20 så att den hamnar exakt bakom cirkeln.
         }
 
         public void FoodPoints()

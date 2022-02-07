@@ -21,8 +21,8 @@ namespace Vinterprojektet
 
         public void RunGame()
         {
-            //Syftet med kodblocket är att den ska kontrollera ifall att spel objekten som spelare, fienden, och maten kolliderar med varandra. 
-            bool eating = Raylib.CheckCollisionRecs(snakeHead.playerPosition, snakeFood.foodCollision);
+            //Syftet med kodblocket är att den ska kontrollera ifall att spel objekten som expempelvis spelare, fienden, och maten kolliderar med varandra. 
+            bool eating = Raylib.CheckCollisionCircleRec(snakeFood.foodPosition, 20, snakeHead.playerPosition);
             bool collisionWithEnemy = Raylib.CheckCollisionRecs(snakeHead.playerPosition, snakeEnemy.enemyCollision);
             bool enemyAndFoodCollision = Raylib.CheckCollisionRecs(snakeEnemy.enemyCollision, snakeFood.foodCollision);
             //bool createEnemy = false;
@@ -64,14 +64,13 @@ namespace Vinterprojektet
 
             Raylib.ClearBackground(Color.BLACK);
 
-            Raylib.DrawRectangleRec(snakeFood.foodCollision, Color.BLACK);  //Eftersom att jag har valt att maten ska vara cirkelformad 
             Raylib.DrawCircleV(snakeFood.foodPosition, 20, lightPink);
             Raylib.DrawCircleV(snakeFood.foodPosition, 15, Color.BLACK);
 
             //Kod för spelaren.
             snakeHead.playerMovement();  //Anropar metod för att kunna förflytta spelaren. 
-            Raylib.DrawRectangleRec(snakeHead.playerPosition, Color.BLACK);     //Hämntar rektangelns form från klassen player. 
-            Raylib.DrawRectangleLinesEx(snakeHead.playerPosition, 4, lightGreen);
+            Raylib.DrawRectangleRec(snakeHead.playerPosition, Color.BLACK);     //Hämtar rektangekn från klassen player och skriver ut den.  
+            Raylib.DrawRectangleLinesEx(snakeHead.playerPosition, 4, lightGreen);  //Koden gör rektangelns kanter bredare så att den kommer att se ur som en ihållig rektangel. 
 
             Raylib.DrawRectangle(0, 0, 1100, 55, darkGray);     //Backgrund för den övre delen av skärmen.
 
