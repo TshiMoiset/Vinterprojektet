@@ -8,7 +8,11 @@ namespace Vinterprojektet
 {
     public class Tail
     {
-        public Vector2 tail;
+        public List<Vector2> tailList = new List<Vector2>();
+
+
+
+
 
 
     }
