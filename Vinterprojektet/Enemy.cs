@@ -8,10 +8,10 @@ namespace Vinterprojektet
 {
     public class Enemy
     {
-        int xEnemy;     //Fiendens x position. 
-        int yEnemy;     //Fiendens y position.
-        public int losePoints;      //Poängen spelaren kommer att förlora efter att ha krockat med fienden. 
+        int xEnemy;
+        int yEnemy;
         int enemyAmount;
+        public int losePoints;      //Poängen spelaren kommer att förlora efter att ha krockat med fienden. 
 
         public Vector2 enemy;       //Fienden skapas som en triangel med hjälp av vector2.
 
@@ -20,34 +20,48 @@ namespace Vinterprojektet
         public Rectangle enemyCollision;        //Kollar ifall att fienden kolliderar med maten.
 
         Random randomNumber = new Random();     //Randrom generator. 
+        Random newRandomNumber = new Random();
 
         public void createEnemy()
         {
-            enemyAmount = randomNumber.Next(1, 7);
+            enemyAmount = randomNumber.Next(1, 5);
 
             for (var i = 0; i < enemyAmount; i++)
             {
                 enemyList.Add(enemy);
-                xEnemy = randomNumber.Next(35, 1065);        //Fienden får en random x.
-                yEnemy = randomNumber.Next(90, 675);        //Fienden får en random x.
+                xEnemy = newRandomNumber.Next(35, 1065);        //Fienden får en random x.
+                yEnemy = newRandomNumber.Next(90, 675);        //Fienden får en random x.      //Fienden får en random x.
 
-                enemy.X = xEnemy;       //Maten får en random positionen xFood har fått.
-                enemy.Y = yEnemy;       //Maten får en random positionen yFood har fått.
 
-                Console.WriteLine(enemyList[i]);
+                enemy.X = xEnemy;
+                enemy.Y = yEnemy;
             }
 
-            enemyCollision = new Rectangle(xEnemy - 20, yEnemy - 25, 40, 40);     //Ritar ut en rektangel som kommer ha värdet av xEnemy1 -20 & yEnemy1 -25 så att den hamnar exakt bakom triangeln.
-            losePoints = randomNumber.Next(10, 25);     //Antalet poängen som spelaren kommer förlora slumpas. 
+            Console.WriteLine();
+            Console.WriteLine("EJ RANDOM " + enemy.X);
+
         }
 
         public void updateEnemyPosition()       //Koden ska köras när spelaren har krockat med fienden eller maten. 
         {
-            xEnemy = randomNumber.Next(35, 1065);        //Fienden får en random x.
-            yEnemy = randomNumber.Next(90, 675);        //Fienden får en random x.
 
-            enemy.X = xEnemy;
-            enemy.Y = yEnemy;
+            for (int i = 0; i < enemyAmount; i++)
+            {
+                xEnemy = newRandomNumber.Next(35, 1065);        //Fienden får en random x.
+                yEnemy = newRandomNumber.Next(90, 675);        //Fienden får en random x.
+
+                enemy.X = xEnemy;
+                enemy.Y = yEnemy;
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("New X " + enemy.X);
+            Console.WriteLine("New Y " + enemy.Y);
+        }
+
+        public void playerLosePoints()
+        {
+            losePoints = randomNumber.Next(10, 25);     //Antalet poängen som spelaren kommer förlora slumpas. 
         }
     }
 }

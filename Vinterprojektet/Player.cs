@@ -65,21 +65,6 @@ namespace Vinterprojektet
             playerPosition.x += xMovement;      // Gör så att Ormens x ändras hela tiden tills att man har tryckt på en annan knapp.
             playerPosition.y += yMovement;      // Gör så att Ormens y ändras hela tiden tills att man har tryckt på en annan knapp.
         }
-
-        public void showTail()
-        {
-            for (int i = 0; i < tail.Length; i++)
-            {
-                Console.Write(tail[i]);
-                //tail = tail[i];
-            }
-
-        }
-
-        public void addTail()
-        {
-
-        }
     }
 }
 

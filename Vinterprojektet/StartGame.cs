@@ -10,7 +10,6 @@ namespace Vinterprojektet
     {
         Player snakeHead = new Player();        //Anropar på klassen player.
         Food snakeFood = new Food();        //Anropar på klassen food.
-        Tail snakeTail = new Tail();        //Anropar på klassen tail.
         Enemy snakeEnemy = new Enemy();     //Anropar på klassen Enemy.
 
         Color lightPink = new Color(230, 0, 126, 255);      //Egen färg
@@ -19,18 +18,19 @@ namespace Vinterprojektet
         Color darkGray = new Color(15, 14, 11, 255);         //Egen färg
         Color gold = new Color(197, 173, 58, 255);         //Egen färg
 
+        bool createEnemy = false;
+
         public void RunGame()
         {
             //Syftet med kodblocket är att den ska kontrollera ifall att spel objekten som expempelvis spelare, fienden, och maten kolliderar med varandra. 
             bool eating = Raylib.CheckCollisionCircleRec(snakeFood.foodPosition, 20, snakeHead.playerPosition);
             bool collisionWithEnemy = Raylib.CheckCollisionRecs(snakeHead.playerPosition, snakeEnemy.enemyCollision);
             bool enemyAndFoodCollision = Raylib.CheckCollisionRecs(snakeEnemy.enemyCollision, snakeFood.foodCollision);
-            //bool createEnemy = false;
 
-            /* if (snakeEnemy.enemy.X == 0)
-             {
-                 snakeEnemy.updateEnemyPosition();
-             }*/
+            if (snakeEnemy.enemy.X == 0)
+            {
+                snakeEnemy.updateEnemyPosition();
+            }
 
             if (snakeFood.foodPosition.X == 0)
             {
@@ -41,16 +41,16 @@ namespace Vinterprojektet
             //Ifall att boolen är true komme koden i if-satsen köras. Detta behövs för att kunna byta matens position och därmed ge spelaren poäng. Fiendens position är också något som ändras. 
             if (eating)
             {
+                snakeEnemy.updateEnemyPosition();
                 snakeFood.updateFoodPosition();    //Metoden anropas för att ge maten och poängen ett nytt värde.
-                snakeEnemy.updateEnemyPosition();      //Fienden får en ny position.
                 snakeFood.FoodPoints();
                 snakeFood.score += snakeFood.foodPointWorth;     //Eftersom att int score börjar som 0 adderas den med worths random värde efter att ormen har rört maten.
             }
 
             if (collisionWithEnemy)
             {
-                // snakeFood.updateFoodPosition();
-                // snakeEnemy.updateEnemyPosition();
+                snakeFood.updateFoodPosition();
+                snakeEnemy.updateEnemyPosition();
                 snakeFood.score -= snakeEnemy.losePoints;
             }
 
@@ -67,6 +67,7 @@ namespace Vinterprojektet
             Raylib.DrawCircleV(snakeFood.foodPosition, 20, lightPink);
             Raylib.DrawCircleV(snakeFood.foodPosition, 15, Color.BLACK);
 
+
             //Kod för spelaren.
             snakeHead.playerMovement();  //Anropar metod för att kunna förflytta spelaren. 
             Raylib.DrawRectangleRec(snakeHead.playerPosition, Color.BLACK);     //Hämtar rektangekn från klassen player och skriver ut den.  
@@ -74,32 +75,29 @@ namespace Vinterprojektet
 
             Raylib.DrawRectangle(0, 0, 1100, 55, darkGray);     //Backgrund för den övre delen av skärmen.
 
-            /*if (snakeFood.score >= -50 && !createEnemy)
+            if (snakeFood.score >= 0)
             {
-                createEnemy = true;
-                snakeEnemy.createEnemy();
+                if (!createEnemy)
+                {
+                    createEnemy = true;
+                    snakeEnemy.createEnemy();
+                }
+
                 Raylib.DrawText("The V.I.P's has arrived", 680, 10, 35, gold);
 
                 for (int i = 0; i < snakeEnemy.enemyList.Count; i++)
                 {
-                    Raylib.DrawRectangleRec(snakeEnemy.enemyCollision, Color.BLACK);
+                    // Raylib.DrawRectangleRec(snakekEnemy.enemyCollisionList[i], Color.GREEN);
+
                     Raylib.DrawPoly(snakeEnemy.enemyList[i], 1, 28, 180, gold);
-                    Raylib.DrawPoly(snakeEnemy.enemyList[i], 1, 20, 180, Color.BLACK);
+                    Raylib.DrawPoly(snakeEnemy.enemyList[i], 1, 20, 180, Color.BLUE);
+                    // Raylib.DrawPoly(snakeEnemy.enemy, 1, 28, 180, gold);
+                    // Raylib.DrawPoly(snakeEnemy.enemy, 1, 20, 180, Color.BLUE);
                 }
-            }*/
+            }
 
             Raylib.DrawText(snakeFood.score.ToString(), 40, 10, 40, darkLight);     //Kod för att visa poäng. 
             Raylib.DrawText("$", 10, 10, 40, darkLight);
-
-            //Kod för svansen.
-            //Raylib.DrawTriangle(snakeTail, 90, 90, Color.GREEN);
-            //Raylib.DrawText(snakeHead.showTail);
-
-            for (int i = 0; i < snakeTail.tailList.Count; i++)
-            {
-                Raylib.DrawRectangleRec(snakeEnemy.enemyCollision, Color.BLACK);
-                Raylib.DrawCircleV(snakeTail.tailList[i], 15, lightPink);
-            }
         }
     }
 }
